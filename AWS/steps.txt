@@ -275,6 +275,39 @@ aws ec2 run-instances \
 |  i-06085754d8887a141 |  webserver02  |  Frontend |
 |  i-09df205103930cedb |  database04   |  QA       |
 +----------------------+---------------+-----------+
+(myenv) control@control:~$ python de.py
+
+
+
+CSV Data Loaded:
+            Hostname Current Department New Department
+0        webserver01            Backend       Frontend
+1        webserver02           Frontend       Frontend
+2         database04                 QA        Backend
+3            ansible             Devops        Backend
+4            scanner                NaN         Devops
+5  activedirectory02              ITops          ITops
+6         database03           Frontend        Backend
+7            jenkins                NaN         Devops
+
+Processing instance webserver01 with current department: Backend and new department: Frontend
+No matching instance found for webserver01 with Department Backend
+Processing instance webserver02 with current department: Frontend and new department: Frontend
+Found instance i-06085754d8887a141. Updating department tag...
+Updated instance i-06085754d8887a141 with new Department: Frontend
+Processing instance database04 with current department: QA and new department: Backend
+Found instance i-0e584173cbc4ec79c. Updating department tag...
+Updated instance i-0e584173cbc4ec79c with new Department: Backend
+Found instance i-09df205103930cedb. Updating department tag...
+Updated instance i-09df205103930cedb with new Department: Backend
+Processing instance ansible with current department: Devops and new department: Backend
+No matching instance found for ansible with Department Devops
+Skipping scanner because it has no current department value.
+Processing instance activedirectory02 with current department: ITops and new department: ITops
+No matching instance found for activedirectory02 with Department ITops
+Processing instance database03 with current department: Frontend and new department: Backend
+No matching instance found for database03 with Department Frontend
+Skipping jenkins because it has no current department value.
 (myenv) control@control:~$
 
 
@@ -289,6 +322,31 @@ CSV Data Loaded:
 6         database03           Frontend        Backend
 7            jenkins                NaN         Devops
 
+Processing instance webserver01 with current department: Backend and new department: Frontend
+No matching instance found for webserver01 with Department Backend
+
+Processing instance webserver02 with current department: Frontend and new department: Frontend
+Found instance i-06085754d8887a141. Updating department tag...
+Updated instance i-06085754d8887a141 with new Department: Frontend
+
+Processing instance database04 with current department: QA and new department: Backend
+Found instance i-0e584173cbc4ec79c. Updating department tag...
+Updated instance i-0e584173cbc4ec79c with new Department: Backend
+Found instance i-09df205103930cedb. Updating department tag...
+Updated instance i-09df205103930cedb with new Department: Backend
+
+Processing instance ansible with current department: Devops and new department: Backend
+No matching instance found for ansible with Department Devops
+
+Skipping scanner because it has no current department value.
+
+Processing instance activedirectory02 with current department: ITops and new department: ITops
+No matching instance found for activedirectory02 with Department ITops
+
+Processing instance database03 with current department: Frontend and new department: Backend
+No matching instance found for database03 with Department Frontend
+
+Skipping jenkins because it has no current department value.
 
 
 
