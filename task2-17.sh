@@ -62,3 +62,11 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Script execution completed successfully for both namespaces."
+
+
+
+
+kubectl exec -n namespace1 -it nginx-5946ff57f4-nllzg -- nginx -s reload
+kubectl logs -n namespace1 nginx-5946ff57f4-nllzg
+kubectl exec -n namespace1 -it alpine-pod -- curl nginx-service:8080
+
