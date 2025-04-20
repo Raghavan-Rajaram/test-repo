@@ -32,16 +32,7 @@ for namespace in "${namespaces[@]}"; do
 
     # Create a deployment for nginx-service
     kubectl create deployment $deployment --image=$image -n $namespace
-
-    # Check if service exists and expose if not
-    service_exists=$(kubectl get service $service -n $namespace --ignore-not-found)
-    if [[ -z "$service_exists" ]]; then
-      kubectl expose deployment $deployment --port=80 --target-port=80 --name=$service -n $namespace
-      echo "Service $service exposed for deployment $deployment in namespace $namespace."
-    else
-      echo "Service $service already exists in namespace $namespace."
-    fi
-
+    kubectl expose deployment $deployment --port=80 --target-port=80 --name=$service -n $namespace
     echo "Deployment $deployment created in namespace $namespace."
   else
     echo "Deployment $deployment already exists in namespace $namespace."
