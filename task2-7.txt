@@ -26,6 +26,8 @@ Commercial support is available at
 
 docker exec -it nginx-8080 bash
 echo "Hello, NGINX!" > /usr/share/nginx/html/index.html
+docker restart nginx-8080
+
 
 
 
