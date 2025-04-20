@@ -107,3 +107,30 @@ EOF
 done
 
 echo -e "\n✅ Setup complete. Run your test script after all pods are ready."
+
+
+output
+===== NAMESPACE CONNECTIVITY TEST =====
+
+🔍 Checking from alpine-pod in namespace1
+----------------------------------------
+Own service (port 80): command terminated with exit code 7
+❌ FAILED
+Own service (port 8080): command terminated with exit code 7
+❌ FAILED
+Other user’s service (port 80): command terminated with exit code 7
+❌ FAILED
+Other user’s service (port 8080 - should be blocked): command terminated with exit code 7
+✅ BLOCKED (Expected)
+
+🔍 Checking from alpine-pod in namespace2
+----------------------------------------
+Own service (port 80): command terminated with exit code 7
+❌ FAILED
+Own service (port 8080): command terminated with exit code 7
+❌ FAILED
+Other user’s service (port 80): command terminated with exit code 7
+❌ FAILED
+Other user’s service (port 8080 - should be blocked): command terminated with exit code 7
+✅ BLOCKED (Expected)
+
