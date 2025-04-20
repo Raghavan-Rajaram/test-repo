@@ -47,3 +47,38 @@ kind: RoleBinding
 metadata:
   name: ${USER1}-binding
   namespace: $NS1
+subjects:
+- kind: ServiceAccount
+  name: ${USER1}
+  namespace: $NS1
+roleRef:
+  kind: Role
+  name: ${USER1}-role
+  apiGroup: rbac.authorization.k8s.io
+EOF
+
+cat <<EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: $NS2
+  name: ${USER2}-role
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "deployments"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ${USER2}-binding
+  namespace: $NS2
+subjects:
+- kind: ServiceAccount
+  name: ${USER2}
+  namespace: $NS2
+roleRef:
+  kind: Role
+  name: ${USER2}-role
+  apiGroup: rbac.authorization.k8s.io
+EOF
