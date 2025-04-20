@@ -146,4 +146,26 @@ aws ec2 run-instances \
     --region us-east-1
 
 
+FileNotFoundError: [Errno 2] No such file or directory: '/home/control/tags_update.csv'
+(myenv) control@control:~$ ls
+boto-env       Desktop    Downloads        jenkins-pv.yaml  myenv            my-key.pem  nano       -p        Public  s.sh         tags.py         Templates       -v
+department.py  Documents  jenkins-pvc.yml  Music            my-key-name.pem  --name      --network  Pictures  snap    storage.yml  tag_update.csv  update_tags.py  Videos
+(myenv) control@control:~$ vim department.py
+(myenv) control@control:~$ python department.py
+(myenv) control@control:~$ python department.py
+(myenv) control@control:~$ vim department.py
+(myenv) control@control:~$
+CSV Data Loaded:
+            Hostname Current Department New Department
+0        webserver01            Backend       Frontend
+1        webserver02           Frontend       Frontend
+2         database04                 QA        Backend
+3            ansible             Devops        Backend
+4            scanner                NaN         Devops
+5  activedirectory02              ITops          ITops
+6         database03           Frontend        Backend
+7            jenkins                NaN         Devops
+
+
+
 
