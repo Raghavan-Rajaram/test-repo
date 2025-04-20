@@ -42,3 +42,22 @@ for namespace in "${namespaces[@]}"; do
 done
 
 echo "All checks complete."
+
+
+
+
+
+
+All checks complete.
+control@control:~$ kubectl get pods -n namespace1
+NAME                                READY   STATUS    RESTARTS   AGE
+alpine-pod                          1/1     Running   0          4m50s
+nginx-deployment-59ccd9598c-jjrfp   2/2     Running   0          3m2s
+nginx-service-597b59c9d6-tbbcl      1/1     Running   0          62s
+control@control:~$ kubectl get pods -n namespace2
+NAME                                READY   STATUS    RESTARTS   AGE
+alpine-pod                          1/1     Running   0          5m1s
+nginx-deployment-59ccd9598c-7tcn9   2/2     Running   0          3m13s
+nginx-service-597b59c9d6-pvx4c      1/1     Running   0          73s
+control@control:~$
+
