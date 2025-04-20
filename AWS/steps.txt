@@ -155,6 +155,55 @@ department.py  Documents  jenkins-pvc.yml  Music            my-key-name.pem  --n
 (myenv) control@control:~$ python department.py
 (myenv) control@control:~$ vim department.py
 (myenv) control@control:~$
+(myenv) control@control:~$ aws ec2 describe-tags --filters "Name=resource-id,Values=i-0b34fa8f05cfe1450"
+{
+    "Tags": []
+}
+(myenv) control@control:~$
+
+(myenv) control@control:~$ aws ec2 create-tags --resources i-0b34fa8f05cfe1450 --tags Key=Hostname,Value=webserver01 Key=Department,Value=Backend
+(myenv) control@control:~$
+
+(myenv) control@control:~$ aws ec2 describe-tags --filters "Name=resource-id,Values=i-0b34fa8f05cfe1450"
+{
+    "Tags": [
+        {
+            "Key": "Department",
+            "ResourceId": "i-0b34fa8f05cfe1450",
+            "ResourceType": "instance",
+            "Value": "Backend"
+        },
+        {
+            "Key": "Hostname",
+            "ResourceId": "i-0b34fa8f05cfe1450",
+            "ResourceType": "instance",
+            "Value": "webserver01"
+        }
+    ]
+}
+(myenv) control@control:~$
+
+(myenv) control@control:~$ aws ec2 create-tags --resources i-06085754d8887a141 --tags Key=Hostname,Value=webserver02 Key=Department,Value=Frontend
+(myenv) control@control:~$
+(myenv) control@control:~$ aws ec2 describe-tags --filters "Name=resource-id,Values=i-06085754d8887a141"
+{
+    "Tags": [
+        {
+            "Key": "Department",
+            "ResourceId": "i-06085754d8887a141",
+            "ResourceType": "instance",
+            "Value": "Frontend"
+        },
+        {
+            "Key": "Hostname",
+            "ResourceId": "i-06085754d8887a141",
+            "ResourceType": "instance",
+            "Value": "webserver02"
+        }
+    ]
+}
+(myenv) control@control:~$
+
 CSV Data Loaded:
             Hostname Current Department New Department
 0        webserver01            Backend       Frontend
