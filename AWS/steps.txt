@@ -263,6 +263,19 @@ aws ec2 run-instances \
 |  launch-wizard-6     |  sg-0086e91937b074a9f  |
 +----------------------+------------------------+
 (myenv) control@control:~$
+(myenv) control@control:~$ aws ec2 describe-instances \
+>   --query "Reservations[*].Instances[*].[InstanceId, Tags[?Key=='Hostname'].Value | [0], Tags[?Key=='Department'].Value | [0]]" \
+>   --output table
+
+----------------------------------------------------
+|                 DescribeInstances                |
++----------------------+---------------+-----------+
+|  i-0e584173cbc4ec79c |  database04   |  QA       |
+|  i-0b34fa8f05cfe1450 |  webserver01  |  Frontend |
+|  i-06085754d8887a141 |  webserver02  |  Frontend |
+|  i-09df205103930cedb |  database04   |  QA       |
++----------------------+---------------+-----------+
+(myenv) control@control:~$
 
 
 CSV Data Loaded:
