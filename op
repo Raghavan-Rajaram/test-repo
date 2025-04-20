@@ -11,3 +11,6 @@ Own service (port 80): ✅ SUCCESS
 Own service (port 8080): ✅ SUCCESS
 Other user’s service (port 80): ✅ SUCCESS
 Other user’s service (port 8080 - should be blocked): ❌ UNEXPECTED SUCCESS (Check NetworkPolicy!)
+
+
+https://chatgpt.com/c/68043bde-a1f0-800a-b96d-31ae8a9a06c8
