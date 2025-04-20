@@ -37,3 +37,9 @@ control@control:~/a$ Hello, NGINX!
 Hello,: command not found
 control@control:~/a$
 
+
+Task	Status
+Create 2 users + 2 namespaces + RBAC	 Done
+Each user creates deployment with 2 nginx containers	 Done
+Each user creates alpine pod	 Done
+
